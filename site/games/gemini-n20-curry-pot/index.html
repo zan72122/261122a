@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>🍛</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #F9DFB1;
+      touch-action: none;
+      position: fixed;
+      inset: 0;
+    }
+    #stage {
+      display: block;
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      touch-action: none;
+      cursor: grab;
+    }
+    #stage.dragging-spin {
+      cursor: grabbing;
+    }
+    #stage.hover-interactive {
+      cursor: pointer;
+    }
+    #replay-btn {
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right, 16px));
+      bottom: max(16px, env(safe-area-inset-bottom, 16px));
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 4px solid #381F15;
+      background: #FFF6E3;
+      box-shadow: 0 4px 0 #381F15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.7);
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 10;
+    }
+    #replay-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+    #replay-btn:active {
+      transform: scale(0.92) translateY(2px);
+      box-shadow: 0 2px 0 #381F15;
+    }
+    #replay-btn svg {
+      width: 28px;
+      height: 28px;
+      stroke: #D8313A;
+      stroke-width: 3.2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+<script src="../../gf-playlog.js" defer></script>
+</head>
+<body>
+  <canvas id="stage"></canvas>
+  <button id="replay-btn" aria-label="↻">
+    <svg viewBox="0 0 24 24">
+      <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+      <polyline points="21 3 21 9 15 9" />
+    </svg>
+  </button>
+
+  <script src="src/palette.js"></script>
+  <script src="src/voxels.js"></script>
+  <script src="src/audio.js"></script>
+  <script src="src/renderer.js"></script>
+  <script src="src/game.js"></script>
+</body>
+</html>

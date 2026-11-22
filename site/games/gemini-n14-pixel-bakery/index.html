@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Pixel Bakery</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #F9ECD0;
+      touch-action: none;
+      overscroll-behavior: none;
+    }
+    #game {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+  </style>
+<script src="../../gf-playlog.js" defer></script>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <script src="assets/sprites_data.js"></script>
+  <script src="src/audio.js"></script>
+  <script src="src/renderer.js"></script>
+  <script src="src/game.js"></script>
+</body>
+</html>
